@@ -1,0 +1,45 @@
+{
+  "name": "crud-products",
+  "version": "1.0.0",
+  "description": "Products CRUD API. Manage products with REST specifications.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon -e yaml,js,json index.js",
+    "dev": "concurrently -n 'server,parcel' -c 'magenta,green' \"npm run server\" \"npm run build-dev\"",
+    "start": "node index.js",
+    "build": "parcel build src/Home.js src/Products.js -d dist",
+    "build-dev": "parcel watch src/Home.js src/Products.js -d dist",
+    "create-swagger-json": "yaml2json swagger.yaml > public/output.json"
+  },
+  "author": "Jeremiah Blessing",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "moment": "^2.27.0",
+    "mongoose": "^5.10.3",
+    "randomstring": "^1.1.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "swagger-ui-express": "^4.1.4",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.4",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.10"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "src/*",
+      "dist/*"
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "sale": true,
+    "discount": 0,
+    "image": "/images/1.jpg",
+    "name": "Brown Vase",
+    "price": 120,
+    "description": "This is a Brown Vase",
+    "id": "5f572dc42814e056a8a00aeaa"
+  },
+  {
+    "sale": true,
+    "discount": 0,
+    "image": "/images/2.jpg",
+    "name": "Green Bottle",
+    "price": 90,
+    "description": "Descriptio nis a lama damo thar",
+    "id": "5f572e288cd98d51sac22961d"
+  },
+  {
+    "sale": false,
+    "discount": 10,
+    "image": "/images/3.jpg",
+    "name": "White Shirt",
+    "price": 120,
+    "description": "This is a white shirt",
+    "id": "5f5746e61da6542bd4sc237ed"
+  },
+  {
+    "sale": true,
+    "discount": 10,
+    "image": "/images/4.jpg",
+    "name": "Blue Jeans",
+    "price": 72,
+    "description": "Descriptio nis a lama damo thar",
+    "id": "5f57474532faea54sb4bfe43d1"
+  },
+  {
+    "sale": true,
+    "discount": 10,
+    "image": "/images/5.jpg",
+    "name": "Tea Cup",
+    "price": 77,
+    "description": "Descriptio nis a lama damo thar",
+    "id": "5f57474532faea54bd4bfe431a"
+  },
+  {
+    "sale": true,
+    "discount": 10,
+    "image": "/images/6.jpg",
+    "name": "Painting",
+    "price": 200,
+    "description": "Lorem Ipsum Dorema lisaum",
+    "id": "5f57474532faea54bd4bfe43sdaf1"
+  }
+]

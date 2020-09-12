@@ -1,0 +1,384 @@
+* {
+  font-family: "Josefin Sans", sans-serif !important;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  padding: 0px;
+  margin: 0px;
+}
+$primary-color: #2e86ab;
+$secondary-color: #f6f5ae;
+$third-color: #564138;
+
+.hero {
+  .title {
+    color: $primary-color;
+    font-size: 70px;
+    svg {
+      height: 70px;
+      width: 70px;
+      vertical-align: text-top;
+    }
+  }
+}
+.sub-hero {
+  .sub-heading {
+    color: $primary-color;
+    font-weight: 400;
+    font-size: 25px;
+  }
+  a {
+    display: block;
+    width: fit-content;
+    svg {
+      vertical-align: middle;
+    }
+  }
+  .github-link {
+    color: $primary-color;
+    svg {
+      height: 20px;
+      width: 20px;
+      margin-left: 7px;
+    }
+  }
+  .try-it-out {
+    text-decoration: none;
+    color: $primary-color;
+    background-color: $secondary-color;
+    font-size: 30px;
+    padding: 30px 50px;
+    border-radius: 10px;
+    margin-top: 50px;
+    transition: all 0.3s ease;
+    position: relative;
+    width: max-content;
+    svg {
+      margin-left: 10px;
+    }
+    &:hover {
+      transform: translateY(-5px);
+      &::after {
+        width: 50%;
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 20px;
+      left: 50px;
+      width: 20%;
+      height: 3px;
+      border-radius: 5px;
+      background-color: $primary-color;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  }
+}
+
+.flow-chart {
+  max-height: 400px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.generation-container {
+  background-color: $primary-color;
+  min-height: 100vh;
+  width: 100%;
+  .gak-container {
+    padding: 50px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .gak-button {
+      padding: 20px 30px;
+      font-size: 40px;
+      border-radius: 10px;
+      border: none;
+      background-color: $third-color;
+      //   text-decoration: underline;
+      margin: 0px 30px;
+      cursor: pointer;
+      box-shadow: 10px 10px $secondary-color;
+      transition: all 0.2s ease;
+      letter-spacing: 1px;
+      color: $secondary-color;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: $secondary-color;
+        bottom: 20%;
+        left: 15%;
+        border-radius: 5px;
+        width: 30%;
+        height: 5px;
+        transition: all 0.4s ease;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+        &::after {
+          width: 60%;
+        }
+      }
+      &:active {
+        transform: translateY(0px);
+        box-shadow: 0px 0px $secondary-color;
+      }
+    }
+    h1 {
+      font-size: 40px;
+      color: white;
+      font-weight: 400;
+    }
+  }
+}
+
+.apikey-container {
+  padding: 20px;
+  background-color: $secondary-color;
+  border-radius: 10px;
+  p {
+    margin: 0px;
+    font-size: 11px;
+    color: $primary-color;
+    margin-bottom: 10px;
+    position: relative;
+    width: fit-content;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0px;
+      top: 125%;
+      width: 100%;
+      height: 2px;
+      background-color: $primary-color;
+    }
+  }
+  .apikey-container-in {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+    color: $primary-color;
+    font-weight: 600;
+    overflow: hidden;
+    .apikey-copybutton {
+      border: none;
+      color: white;
+      background-color: $primary-color;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.3s ease-out;
+      display: flex;
+      opacity: 0;
+      align-items: center;
+      svg {
+        vertical-align: middle;
+        height: 16px;
+        width: 16px;
+        margin-left: 5px;
+      }
+      &:hover {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+.recent-keys {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  button {
+    font-weight: 400;
+    margin: 0px;
+    font-size: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $secondary-color;
+    padding: 10px 20px;
+    user-select: none;
+    background-color: $primary-color;
+    color: $secondary-color;
+    cursor: pointer;
+
+    svg {
+      transition: all 0.3s ease;
+      margin-left: 5px;
+    }
+  }
+  button.active {
+    svg {
+      transition: all 0.3s ease;
+      transform: rotateZ(180deg);
+    }
+  }
+  ul {
+    margin: 0px;
+    margin-top: 15px;
+    padding: 0px;
+    list-style: none;
+    padding: 20px;
+    display: none;
+    transition: all 0.3s ease;
+    li {
+      color: $secondary-color;
+      letter-spacing: 1px;
+      margin: 2px 0px;
+      font-size: 20px;
+      text-align: center;
+    }
+  }
+  ul.active {
+    display: block;
+  }
+}
+.whatnext-container {
+  opacity: 0;
+  transform: translateY(20px);
+  h3 {
+    font-weight: 400;
+    font-size: 30px;
+    margin: 0px;
+    color: white;
+    position: relative;
+    width: fit-content;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0px;
+      top: 105%;
+      width: 100%;
+      height: 2px;
+      border-radius: 5px;
+      background-color: white;
+    }
+  }
+  ul {
+    margin-top: 25px;
+    list-style: none;
+    li {
+      position: relative;
+      color: white;
+      font-size: 18px;
+      &::before {
+        content: "•";
+        font-size: 170%; /* or whatever */
+        padding-right: 5px;
+      }
+      svg {
+        height: 18px;
+        width: 18px;
+        vertical-align: middle;
+        margin-left: 5px;
+      }
+      a {
+        color: $secondary-color;
+        margin: 0px 3px;
+      }
+      .instructions {
+        color: $secondary-color;
+        margin-left: 5px;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.whatnext-container.active {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 2s;
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+@media only screen and (max-width: 768px) {
+  .hero {
+    .title {
+      font-size: 55px;
+      svg {
+        height: 55px;
+        width: 55px;
+      }
+    }
+  }
+  .generation-container .gak-container {
+    .gak-button {
+      font-size: 30px;
+      padding: 10px 25px;
+    }
+    h1 {
+      font-size: 30px;
+    }
+  }
+}
+@media only screen and (max-width: 470px) {
+  .hero {
+    .title {
+      font-size: 35px;
+      svg {
+        height: 35px;
+        width: 35px;
+      }
+    }
+  }
+  .sub-hero {
+    .sub-heading {
+      font-size: 18px;
+    }
+    .try-it-out {
+      padding: 20px 35px;
+      font-size: 25px;
+      &::after {
+        bottom: 15px;
+        left: 35px;
+        width: 20%;
+        height: 2px;
+      }
+    }
+  }
+  .generation-container .gak-container {
+    .gak-button {
+      font-size: 20px;
+      padding: 10px 15px;
+      box-shadow: 5px 5px $secondary-color;
+      &::after {
+        height: 3px;
+      }
+    }
+    h1 {
+      font-size: 15px;
+    }
+  }
+  .apikey-container .apikey-container-in {
+    font-size: 10px;
+    .apikey-copybutton {
+      font-size: 10px;
+      padding: 5px;
+      svg {
+        height: 10px;
+        width: 10px;
+      }
+    }
+  }
+  .whatnext-container ul {
+    padding-left: 10px;
+    li {
+      font-size: 14px;
+    }
+  }
+  .recent-keys {
+    ul {
+      li {
+        font-size: 12px;
+      }
+    }
+  }
+}

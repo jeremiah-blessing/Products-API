@@ -1,0 +1,184 @@
+openapi: 3.0.0
+info:
+  version: "1.0"
+  title: "Products CRUD"
+  description: "API to manage Products of your store."
+servers:
+  - url: "http://localhost:3000"
+    description: Local Server
+  - url: "https://jsonplaceholder.typicode.com/"
+    description: Production Server
+
+tags:
+  - name: Products
+    description: Add / Edit / Get Products
+paths:
+  /products:
+    get:
+      description: Get all the Products
+      tags:
+        - Products
+      responses:
+        200:
+          description: Successfull Request and all the templates are received.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProductCreated"
+    post:
+      description: Add a new post
+      tags:
+        - Products
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductNew"
+            examples:
+              Product:
+                $ref: "#/components/examples/ProductNew"
+
+      responses:
+        201:
+          description: Successfully added a new Product
+
+  /products/{id}:
+    get:
+      description: Get a single Products
+      tags:
+        - Products
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            example: 5f57474532faea54b4bfe431
+      responses:
+        200:
+          description: Successfull request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductCreated"
+              example:
+                $ref: "#/components/examples/ProductCreated"
+
+    put:
+      description: Edit a Product
+      tags:
+        - Products
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            example: 5f572dc42814e056a800aeaa
+      requestBody:
+        description: Fields that you want to edit
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProductNew"
+      responses:
+        200:
+          description: Successfull request
+    delete:
+      description: Delete a single Product
+      tags:
+        - Products
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            example: 5f574724c7569555388c662c
+      responses:
+        200:
+          description: Successfull request
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: apiKey
+  schemas:
+    ProductNew:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the Product.
+        price:
+          type: number
+          description: Price of the Product.
+        sale:
+          type: boolean
+          description: If this product is currently on sale or not.
+        discount:
+          type: number
+          description: Discount in percentage. If 10% discount, then 10 is the discount.
+          example: 10
+        description:
+          type: string
+          description: Short description of the product.
+        image:
+          type: string
+          description: Image URL of the product. Make sure it's CORS enabled.
+    ProductCreated:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique ID generated for a Product. Use this, to query a single product.
+        name:
+          type: string
+          description: Name of the Product.
+        price:
+          type: number
+          description: Price of the Product.
+        sale:
+          type: boolean
+          description: If this product is currently on sale or not.
+        discount:
+          type: number
+          description: Discount in percentage. If 10% discount, then 10 is the discount.
+          example: 10
+        description:
+          type: string
+          description: Short description of the product.
+        image:
+          type: string
+          description: Image URL of the product. Make sure it's CORS enabled.
+  examples:
+    ProductNew:
+      summary: Sample E-Book Product
+      value:
+        {
+          name: "E-Book",
+          price: 230,
+          sale: true,
+          discount: 10,
+          description: "Buy this e-book!",
+          image: "/images/4.jpg",
+        }
+    ProductCreated:
+      summary: Sample E-Book Product
+      value:
+        {
+          id: "87fd98sdfasdfasdf",
+          name: "E-Book",
+          price: 230,
+          sale: true,
+          discount: 10,
+          description: "Buy this e-book!",
+          image: "https://www.imageurl.com/image.jpg",
+        }
+
+security:
+  - ApiKeyAuth: []

@@ -1,0 +1,254 @@
+body {
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+}
+* {
+  font-family: "Josefin Sans", sans-serif !important;
+}
+#root {
+  width: 100%;
+}
+.App {
+  width: 100%;
+}
+.jumbotron {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  padding: 30px 0px;
+  h1 {
+    font-size: 60px;
+    margin: 30px 0px;
+  }
+  p {
+    margin: 0px;
+  }
+}
+.product.default {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  height: fit-content;
+  margin: 10px;
+  .product-name {
+    padding: 20px 0px 20px 20px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .product-image {
+    height: 280px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.3s ease;
+    .product-image-overlay {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      width: 100%;
+      background-color: black;
+      color: whitesmoke;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .product-image-overlay.active {
+      span {
+        opacity: 0;
+      }
+      opacity: 0;
+      user-select: none;
+      transition-delay: 0.3s !important;
+      transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  }
+  .product-sale {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    background-color: #fafafa;
+    padding: 5px 10px;
+    font-weight: 400;
+  }
+  .product-details {
+    padding: 20px;
+    padding-bottom: 30px;
+    position: relative;
+  }
+  .product-description {
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .product-original {
+    font-weight: 400;
+    font-size: 13px;
+    color: #e18728;
+  }
+  .product-original span {
+    text-decoration-color: #e18728;
+    text-decoration: line-through;
+  }
+  .product-price {
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .cart-icon {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 15px;
+    background-color: black;
+    cursor: pointer;
+  }
+  .cart-icon circle,
+  .cart-icon path {
+    stroke: #ffffff;
+  }
+  p {
+    margin: 0px;
+    padding: 0px;
+  }
+}
+.product.hovered {
+  .product-name {
+    background-position: 200%;
+    text-shadow: 5px 5px white;
+    animation: fade-out 2s linear infinite alternate;
+    // animation: gradient 5s linear infinite alternate !important;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    color: black;
+    text-shadow: 5px 5px white;
+  }
+  19% {
+    color: black;
+    text-shadow: 5px 5px white;
+  }
+  20% {
+    color: white;
+    text-shadow: 7px 7px black;
+  }
+  39% {
+    color: white;
+    text-shadow: 7px 7px black;
+  }
+  40% {
+    color: black;
+    text-shadow: 5px 5px white;
+  }
+  59% {
+    color: black;
+    text-shadow: 5px 5px white;
+  }
+  60% {
+    color: white;
+    text-shadow: 7px 7px black;
+  }
+  79% {
+    color: white;
+    text-shadow: 7px 7px black;
+  }
+  80% {
+    color: black;
+    text-shadow: 5px 5px white;
+  }
+
+  100% {
+    color: black;
+    text-shadow: 5px 5px white;
+  }
+}
+
+.products-container {
+  width: 700px;
+  margin: 0px auto;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+.product-empty {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p {
+    margin: 0px;
+  }
+  a {
+    text-decoration: none;
+    margin-top: 25px;
+    padding: 15px 25px;
+    font-size: 20px;
+    color: white;
+    border-radius: 10px;
+    background-color: black;
+    width: fit-content;
+    display: block;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+    }
+    svg {
+      vertical-align: middle;
+      margin-left: 10px;
+    }
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 767px) {
+  .products-container {
+    width: 100%;
+    .products {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// /* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .products-container {
+    width: 80%;
+    .products {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+// /* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .products-container {
+    .products {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+
+// /* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1250px) {
+  .products-container {
+    .products {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+}
