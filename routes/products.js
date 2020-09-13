@@ -11,7 +11,7 @@ router.use(async (req, res, next) => {
   const apiKey = req.get("apiKey");
 
   if (apiKey === "" || apiKey === " " || typeof apiKey === "undefined") {
-    res.status(400).send("Invalid Request. No API key found in the Header.");
+    res.status(401).send("Invalid Request. No API key found in the Header.");
   } else {
     const api = await APIKey.findOne({ key: apiKey });
     if (api !== null) {
@@ -21,8 +21,8 @@ router.use(async (req, res, next) => {
       if (difference < EXPIRY_DURATION && api.disabled === false) {
         req.apiKey = apiKey;
         next();
-      } else res.status(400).send("Expired API Key.");
-    } else res.status(400).send("No API key found.");
+      } else res.status(401).send("Expired API Key.");
+    } else res.status(401).send("No such API key found.");
   }
 });
 
@@ -75,7 +75,7 @@ async function getAllProducts(req, res) {
     });
     res.json(sProducts);
   } catch (error) {
-    res.status().send("Internal error");
+    res.status(500).send("Internal Server error!");
   }
 }
 async function getAProduct(req, res) {
@@ -99,7 +99,7 @@ async function getAProduct(req, res) {
     }
   } catch (error) {
     console.log(error);
-    res.status(500).send("Internal error");
+    res.status(500).send("Internal Server error!");
   }
 }
 async function addAProduct(req, res) {
@@ -180,7 +180,7 @@ async function editAProduct(req, res) {
 
         res.json(sProduct);
       } else {
-        res.status(400).send("No Product found!");
+        res.status(404).send("No Product found to update!");
       }
     } catch (error) {
       res.status(500).send("Internal Server error!");
@@ -202,10 +202,10 @@ async function deleteAProduct(req, res) {
     if (deleted !== null) {
       res.json({ success: true });
     } else {
-      res.status(404).send("No Product found!");
+      res.status(404).send("No Product found to delete!");
     }
   } catch (error) {
-    res.status(400).json({ success: false });
+    res.status(500).json({ success: false });
   }
 }
 

@@ -64,7 +64,9 @@ function Product({ id, name, price, description, sale, discount, image }) {
         />
       </div>
       <div className="product-details">
-        <p className="product-description">{description}</p>
+        <p className="product-description">{`${description.slice(0, 30)}${
+          description.length > 50 ? "..." : ""
+        }`}</p>
         {hasDiscount ? (
           <p className="product-original">
             <span>${price}</span> - {discount}% discount

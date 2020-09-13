@@ -27,6 +27,28 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/ProductCreated"
+        401:
+          description: Authentication Failed.
+          content:
+            text/html:
+              schema:
+                type: string
+              examples:
+                one:
+                  summary: No API key present in the Header
+                  value: Invalid Request. No API key found in the Header.
+                two:
+                  summary: Invalid / Expired Key
+                  value: Expired API Key.
+
+        500:
+          description: Internal Server Error.
+          content:
+            text/html:
+              schema:
+                type: string
+              example: Internal Server error!
+
     post:
       description: Add a new post
       tags:
@@ -43,6 +65,42 @@ paths:
       responses:
         201:
           description: Successfully added a new Product
+          content:
+            application/json:
+              examples:
+                Product:
+                  $ref: "#/components/examples/ProductCreated"
+        400:
+          description: Missing Values or bad Schema.
+          content:
+            text/html:
+              schema:
+                type: string
+              examples:
+                one:
+                  summary: All the required fields are not Present
+                  value: "Missing Values. Required Fields : [name, price, description], Format : [name:String, price:Number, description:String, sale:Boolean, discount:Number, image:String]"
+        401:
+          description: Authentication Failed.
+          content:
+            text/html:
+              schema:
+                type: string
+              examples:
+                one:
+                  summary: No API key present in the Header
+                  value: Invalid Request. No API key found in the Header.
+                two:
+                  summary: Invalid / Expired Key
+                  value: Expired API Key.
+
+        500:
+          description: Internal Server Error.
+          content:
+            text/html:
+              schema:
+                type: string
+              example: Internal Server error!
 
   /products/{id}:
     get:
@@ -63,8 +121,40 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ProductCreated"
-              example:
-                $ref: "#/components/examples/ProductCreated"
+              examples:
+                Product:
+                  $ref: "#/components/examples/ProductCreated"
+        401:
+          description: Authentication Failed.
+          content:
+            text/html:
+              schema:
+                type: string
+              examples:
+                one:
+                  summary: No API key present in the Header
+                  value: Invalid Request. No API key found in the Header.
+                two:
+                  summary: Invalid / Expired Key
+                  value: Expired API Key.
+        404:
+          description: Product doesn't exist.
+          content:
+            text/html:
+              schema:
+                type: string
+              examples:
+                Notexist:
+                  summary: Product of that ID doesn't exist.
+                  value: Product doesn't exist.
+
+        500:
+          description: Internal Server Error.
+          content:
+            text/html:
+              schema:
+                type: string
+              example: Internal Server error!
 
     put:
       description: Edit a Product
@@ -86,6 +176,53 @@ paths:
       responses:
         200:
           description: Successfull request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductCreated"
+              examples:
+                Product:
+                  $ref: "#/components/examples/ProductCreated"
+        400:
+          description: Missing Values or bad Schema.
+          content:
+            text/html:
+              schema:
+                type: string
+              examples:
+                one:
+                  summary: All the required fields are not Present
+                  value: "Invalid Format. Required format : [name:String, price:Number, description:String, sale:Boolean, discount:Number, image:String]"
+        401:
+          description: Authentication Failed.
+          content:
+            text/html:
+              schema:
+                type: string
+              examples:
+                one:
+                  summary: No API key present in the Header
+                  value: Invalid Request. No API key found in the Header.
+                two:
+                  summary: Invalid / Expired Key
+                  value: Expired API Key.
+        404:
+          description: Product doesn't exist.
+          content:
+            text/html:
+              schema:
+                type: string
+              examples:
+                Notexist:
+                  summary: Product of that ID doesn't exist.
+                  value: No Product found to update!
+        500:
+          description: Internal Server Error.
+          content:
+            text/html:
+              schema:
+                type: string
+              example: Internal Server error!
     delete:
       description: Delete a single Product
       tags:
@@ -100,6 +237,47 @@ paths:
       responses:
         200:
           description: Successfull request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                    example: true
+        401:
+          description: Authentication Failed.
+          content:
+            text/html:
+              schema:
+                type: string
+              examples:
+                one:
+                  summary: No API key present in the Header
+                  value: Invalid Request. No API key found in the Header.
+                two:
+                  summary: Invalid / Expired Key
+                  value: Expired API Key.
+        404:
+          description: Product doesn't exist.
+          content:
+            text/html:
+              schema:
+                type: string
+              examples:
+                Notexist:
+                  summary: Product of that ID doesn't exist.
+                  value: No Product found to delete!
+        500:
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                    example: false
 
 components:
   securitySchemes:

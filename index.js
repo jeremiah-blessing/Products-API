@@ -50,8 +50,6 @@ app.use(
       const { apikey } = req.params;
       const isFound = await APIKey.findOne({ key: apikey });
 
-      // TODO: Document responses & Sample Images
-
       if (isFound !== null) {
         swaggerDocument.info.description = `API to manage Products of your store. [Preview your site <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>](/site/${apikey})<br/><p><b>You API Key: ${apikey}</b><br><br><em>Use the above key to Authorize.</em></p><br><em>Confused?</em> [Generate some sample products](/create-sample-products/${apikey}) `;
         req.swaggerDoc = swaggerDocument;
@@ -112,8 +110,6 @@ app.get("/create-sample-products/:apikey", isValidAPIKey, async (req, res) => {
 });
 
 app.get("/site/:apikey", isValidAPIKey, async (req, res) => {
-  // TODO: Maruee Effect
-
   // Get all the products from the DB
   const products = await Product.find({ apiKey: req.params.apikey });
 
