@@ -349,13 +349,13 @@ components:
       summary: Sample E-Book Product
       value:
         {
-          id: "87fd98sdfasdfasdf",
+          id: "5f57474532faea54b4bfe431",
           name: "E-Book",
           price: 230,
           sale: true,
           discount: 10,
           description: "Buy this e-book!",
-          image: "https://www.imageurl.com/image.jpg",
+          image: "/images/2.jpg",
         }
 
 security:

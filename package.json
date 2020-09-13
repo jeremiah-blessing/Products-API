@@ -10,7 +10,7 @@
     "start": "node index.js",
     "build": "parcel build src/Home.js src/Products.js -d dist",
     "build-dev": "parcel watch src/Home.js src/Products.js -d dist",
-    "create-swagger-json": "yaml2json swagger.yaml > public/swagger.json"
+    "create-swagger-json": "yaml2json swagger.yaml > dist/swagger.json"
   },
   "author": "Jeremiah Blessing",
   "license": "ISC",

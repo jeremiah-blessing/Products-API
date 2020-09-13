@@ -1,0 +1,47 @@
+name: Products API
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: Clean Install NPM Modules
+        run: npm ci
+      - name: Build with Parcel
+        run: npm run build
+      - name: Create Swagger JSON
+        run: npm run create-swagger-json
+      - name: Log Current Directory
+        run: ls -R
+      - name: Upload dist artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist-artifacts
+          path: dist/
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download dist artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: dist-artifacts
+          path: dist
+      - name: Log Current Directory
+        run: ls -R
+      - name: "Deploy to Heroku"
+        uses: akhileshns/heroku-deploy@v3.4.6
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
