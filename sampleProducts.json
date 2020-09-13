@@ -19,7 +19,7 @@
   },
   {
     "sale": false,
-    "discount": 10,
+    "discount": 3,
     "image": "/images/3.jpg",
     "name": "White Shirt",
     "price": 120,
@@ -28,7 +28,7 @@
   },
   {
     "sale": true,
-    "discount": 10,
+    "discount": 7,
     "image": "/images/4.jpg",
     "name": "Blue Jeans",
     "price": 72,
@@ -46,7 +46,7 @@
   },
   {
     "sale": true,
-    "discount": 10,
+    "discount": 5,
     "image": "/images/6.jpg",
     "name": "Painting",
     "price": 200,
