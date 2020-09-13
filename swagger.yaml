@@ -4,10 +4,10 @@ info:
   title: "Products CRUD"
   description: "API to manage Products of your store."
 servers:
+  - url: "https://product-rest-api.herokuapp.com"
+    description: Production Server
   - url: "http://localhost:3000"
     description: Local Server
-  - url: "https://jsonplaceholder.typicode.com/"
-    description: Production Server
 
 tags:
   - name: Products
