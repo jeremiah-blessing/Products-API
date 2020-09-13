@@ -15,6 +15,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/Products.css" />
+    <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css" />
     <% if (env==="dev") { %>
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
@@ -37,6 +38,13 @@
       ><%= JSON.stringify(products) %></span
     >
     <span style="display: none" id="apikey"><%= apikey %></span>
+    <script src="https://cdn.jsdelivr.net/npm/kursor@0.0.14/dist/kursor.js"></script>
+    <script>
+      new kursor({
+        type: 4,
+        removeDefaultCursor: true,
+      });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
     <script src="/Products.js"></script>
   </body>
