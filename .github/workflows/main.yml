@@ -18,10 +18,8 @@ jobs:
         run: npm ci
       - name: Build with Parcel
         run: npm run build
-      - name: Create Swagger JSON
-        run: npm run create-swagger-json
       - name: Log Current Directory
-        run: ls -R
+        run: ls -R --ignore=node_modules
       - name: Upload dist artifacts
         uses: actions/upload-artifact@v2
         with:

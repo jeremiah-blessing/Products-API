@@ -9,8 +9,7 @@
     "dev": "concurrently -n 'server,parcel' -c 'magenta,green' \"npm run server\" \"npm run build-dev\"",
     "start": "node index.js",
     "build": "parcel build src/Home.js src/Products.js -d dist",
-    "build-dev": "parcel watch src/Home.js src/Products.js -d dist",
-    "create-swagger-json": "yaml2json swagger.yaml > dist/swagger.json"
+    "build-dev": "parcel watch src/Home.js src/Products.js -d dist"
   },
   "author": "Jeremiah Blessing",
   "license": "ISC",

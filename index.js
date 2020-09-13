@@ -132,6 +132,10 @@ app.get("/site/:apikey", isValidAPIKey, async (req, res) => {
   });
 });
 
+app.get("/swagger.json", (req, res) => {
+  res.json(swaggerDocument);
+});
+
 app.get("*", (req, res) => {
   res.status(404).render("404");
 });
