@@ -1,6 +1,12 @@
 const moment = require("moment");
 const { APIKey } = require("../configs/Schemas");
 
+/**
+ * Middle ware to check if an API key is valid and not expired.
+ * @param {object} req - Express request instance
+ * @param {object} res - Express response instance
+ * @param {function} next - Express next function
+ */
 async function isValidAPIKey(req, res, next) {
   const { apikey } = req.params;
   const api = await APIKey.findOne({ key: apikey });
