@@ -6,7 +6,9 @@
     "name": "Brown Vase",
     "price": 120,
     "description": "This is a Brown Vase",
-    "id": "5f572dc42814e056a8a00aeaa"
+    "id": "5f572dc42814e056a8a00aeaa",
+    "category": ["gadget"],
+    "stock": 3
   },
   {
     "sale": true,
@@ -15,7 +17,9 @@
     "name": "Green Bottle",
     "price": 90,
     "description": "Descriptio nis a lama damo thar",
-    "id": "5f572e288cd98d51sac22961d"
+    "id": "5f572e288cd98d51sac22961d",
+    "category": ["software", "gadget"],
+    "stock": 7
   },
   {
     "sale": false,
@@ -24,7 +28,8 @@
     "name": "White Shirt",
     "price": 120,
     "description": "This is a white shirt",
-    "id": "5f5746e61da6542bd4sc237ed"
+    "id": "5f5746e61da6542bd4sc237ed",
+    "stock": 2
   },
   {
     "sale": true,
@@ -33,7 +38,9 @@
     "name": "Blue Jeans",
     "price": 72,
     "description": "Descriptio nis a lama damo thar",
-    "id": "5f57474532faea54sb4bfe43d1"
+    "id": "5f57474532faea54sb4bfe43d1",
+    "category": ["gadget"],
+    "stock": 6
   },
   {
     "sale": true,
@@ -42,7 +49,9 @@
     "name": "Tea Cup",
     "price": 77,
     "description": "Descriptio nis a lama damo thar",
-    "id": "5f57474532faea54bd4bfe431a"
+    "id": "5f57474532faea54bd4bfe431a",
+    "category": ["software"],
+    "stock": 11
   },
   {
     "sale": true,
@@ -51,6 +60,8 @@
     "name": "Painting",
     "price": 200,
     "description": "Lorem Ipsum Dorema lisaum",
-    "id": "5f57474532faea54bd4bfe43sdaf1"
+    "id": "5f57474532faea54bd4bfe43sdaf1",
+    "category": ["software", "gadget"],
+    "stock": 4
   }
 ]

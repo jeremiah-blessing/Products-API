@@ -8,8 +8,8 @@ const APIKeysSchema = new mongoose.Schema({
 });
 
 const ProductSchema = new mongoose.Schema({
-  name: String,
-  price: Number,
+  name: { type: String, required: true },
+  price: { type: String, required: true },
   description: String,
   sale: { type: Boolean, default: false },
   discount: { type: Number, default: 0 },
@@ -18,6 +18,14 @@ const ProductSchema = new mongoose.Schema({
     default: "",
   },
   apiKey: { type: String, required: true },
+  category: {
+    type: Array,
+    default: ["uncategorised"],
+  },
+  stock: {
+    type: Number,
+    default: 1,
+  },
 });
 
 // Models

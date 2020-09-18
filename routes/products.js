@@ -55,6 +55,13 @@ router.put(
 );
 router.delete("/:id", deleteAProduct);
 
+// Callback functions
+
+/**
+ * Route to get all the products
+ * @param {object} req - Express request instance
+ * @param {object} res - Express response instance
+ */
 async function getAllProducts(req, res) {
   const { apiKey } = req;
 
@@ -78,6 +85,12 @@ async function getAllProducts(req, res) {
     res.status(500).send("Internal Server error!");
   }
 }
+
+/**
+ * Route to get a single Product
+ * @param {object} req - Express request instance
+ * @param {object} res - Express response instance
+ */
 async function getAProduct(req, res) {
   const { apiKey } = req;
 
@@ -102,6 +115,12 @@ async function getAProduct(req, res) {
     res.status(500).send("Internal Server error!");
   }
 }
+
+/**
+ * Route to add a new Product
+ * @param {object} req - Express request instance
+ * @param {object} res - Express response instance
+ */
 async function addAProduct(req, res) {
   if (validationResult(req).isEmpty()) {
     const { apiKey } = req;
@@ -141,6 +160,12 @@ async function addAProduct(req, res) {
       );
   }
 }
+
+/**
+ * Route to edit a Product
+ * @param {object} req - Express request instance
+ * @param {object} res - Express response instance
+ */
 async function editAProduct(req, res) {
   if (validationResult(req).isEmpty()) {
     const { apiKey } = req;
@@ -193,6 +218,12 @@ async function editAProduct(req, res) {
       );
   }
 }
+
+/**
+ * Route to delete a Product
+ * @param {object} req - Express request instance
+ * @param {object} res - Express response instance
+ */
 async function deleteAProduct(req, res) {
   const { apiKey } = req;
 
