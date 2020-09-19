@@ -308,6 +308,14 @@ components:
         image:
           type: string
           description: Image URL of the product. Make sure it's CORS enabled.
+        category:
+          type: array
+          description: Array of Categories. Make sure it is in lowecase.
+          default: ["uncategorised"]
+        stock:
+          type: number
+          description: Available stock of that product.
+          default: 1
     ProductCreated:
       type: object
       properties:
@@ -333,6 +341,14 @@ components:
         image:
           type: string
           description: Image URL of the product. Make sure it's CORS enabled.
+        category:
+          type: array
+          description: Array of Categories. Make sure it is in lowecase.
+          default: ["uncategorised"]
+        stock:
+          type: number
+          description: Available stock of that product.
+          default: 1
   examples:
     ProductNew:
       summary: Sample E-Book Product
@@ -344,6 +360,8 @@ components:
           discount: 10,
           description: "Buy this e-book!",
           image: "/images/4.jpg",
+          stock: 3,
+          category: ["book", "education"],
         }
     ProductCreated:
       summary: Sample E-Book Product
@@ -356,6 +374,8 @@ components:
           discount: 10,
           description: "Buy this e-book!",
           image: "/images/2.jpg",
+          stock: 3,
+          category: ["book", "education"],
         }
 
 security:
